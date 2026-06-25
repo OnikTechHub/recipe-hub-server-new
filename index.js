@@ -29,10 +29,14 @@ const client = new MongoClient(uri, {
   },
 });
 
-async function run() {
-  try {
-    await client.connect();
-    console.log("Database connected successfully to MongoDB!");
+// async function run() {
+//   try {
+//     await client.connect();
+    // console.log("Database connected successfully to MongoDB!");
+
+    client.connect(() => {
+      console.log('Database connected successfully to MongoDB')
+    }).catch(console.dri)
 
     const db = client.db("RecipeHubDB");
 
@@ -1175,11 +1179,11 @@ async function run() {
         });
       }
     });
-  } catch (error) {
-    console.error("MongoDB engine initialization crash:", error);
-  }
-}
-run().catch(console.dir);
+//   } catch (error) {
+//     console.error("MongoDB engine initialization crash:", error);
+//   }
+// }
+// run().catch(console.dir);
 
 app.get("/", (req, res) => {
   res.send("RecipeHub Production Server is Online!");
@@ -1188,3 +1192,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is perfectly running on port: ${PORT}`);
 });
+
+module.exports = app;
