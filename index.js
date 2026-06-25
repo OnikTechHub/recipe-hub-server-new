@@ -15,7 +15,6 @@ app.use(
   cors({
     origin: ["https://recipe-hub-client-two.vercel.app"],
     credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization", "authorization"],
   }),
 );
 
